@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfred Mushagalusa Munganga – AI Engineer · Computer Science @ TU Darmstadt</title>
+<meta name="description" content="Alfred Mushagalusa Munganga (alfredlog): Computer Science student at TU Darmstadt building AI agents, RAG systems and production web apps – AgentTresor, E-Rechnung, Empfang KI, PDF Libre.">
+<meta name="author" content="Alfred Mushagalusa Munganga">
+<meta name="theme-color" content="#070a17">
+<link rel="canonical" href="https://alfredlog.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Alfred Mushagalusa Munganga – AI Engineer">
+<meta property="og:description" content="Computer Science @ TU Darmstadt · AI agents, RAG, machine learning and automation.">
+<meta property="og:url" content="https://alfredlog.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23070a17'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='800' font-size='30' text-anchor='middle' fill='%237cf4d6'%3EAM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alfred Mushagalusa Munganga",
+  "alternateName": ["Alfred Mushagalusa", "Alfred Munganga", "alfredlog"],
+  "url": "https://alfredlog.github.io/",
+  "jobTitle": "AI Engineer (Working Student)",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Technische Universität Darmstadt" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Darmstadt", "addressCountry": "DE" },
+  "knowsLanguage": ["fr", "de", "en"],
+  "knowsAbout": ["Machine Learning", "Generative AI", "AI Agents", "RAG", "Process Automation", "Node.js", "Python", "FastAPI"],
+  "sameAs": ["https://github.com/alfredlog", "https://www.linkedin.com/in/alfred119"]
+}
+</script>
+<style>
+  :root {
+    --bg: #070a17; --bg-2: #0d1226; --card: rgba(255,255,255,.045); --line: rgba(255,255,255,.09);
+    --ink: #eef1fb; --ink-2: #9aa3c2; --mint: #7cf4d6; --violet: #8b7bff; --pink: #ff6fb5; --amber: #ffc861;
+    --display: "Space Grotesk", system-ui, sans-serif; --body: "Inter", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16.5px/1.65 var(--body); overflow-x: hidden; }
+  a { color: inherit; }
+  ::selection { background: var(--violet); color: #fff; }
+
+  /* ---------- Hintergrund: Lichtwolken + Gitter + Partikel ---------- */
+  .aurora { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+  .aurora i { position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%; filter: blur(90px); opacity: .32; animation: drift 26s ease-in-out infinite alternate; }
+  .aurora i:nth-child(1) { background: var(--violet); top: -18vmax; left: -10vmax; }
+  .aurora i:nth-child(2) { background: var(--mint); top: 30vh; right: -18vmax; animation-duration: 32s; opacity: .2; }
+  .aurora i:nth-child(3) { background: var(--pink); bottom: -24vmax; left: 25vw; animation-duration: 38s; opacity: .18; }
+  @keyframes drift { to { transform: translate(8vmax, 6vmax) scale(1.15); } }
+  .grid { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px; mask-image: radial-gradient(ellipse at 50% 0%, #000 10%, transparent 70%); opacity: .45; }
+  #net { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+  .glow { position: fixed; width: 420px; height: 420px; border-radius: 50%; pointer-events: none; z-index: -1;
+    background: radial-gradient(circle, rgba(124,244,214,.13), transparent 65%); transform: translate(-50%, -50%); transition: opacity .3s; }
+
+  /* ---------- Navigation ---------- */
+  header { position: fixed; top: 14px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 4px; padding: 6px;
+    background: rgba(13,18,38,.65); backdrop-filter: blur(14px); border: 1px solid var(--line); border-radius: 999px; }
+  header a { text-decoration: none; padding: 7px 14px; border-radius: 999px; font-size: .9rem; font-weight: 500; color: var(--ink-2); transition: .2s; }
+  header a:hover, header a.on { color: var(--ink); background: rgba(255,255,255,.08); }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 11; background: linear-gradient(90deg, var(--mint), var(--violet), var(--pink)); }
+
+  main { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 110px 0 30px; }
+
+  /* ---------- Hero ---------- */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 90px; }
+  .hello { font-family: var(--mono); color: var(--mint); font-size: .95rem; margin: 0 0 18px; display: inline-flex; align-items: center; gap: 10px; }
+  .dot { flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 0 rgba(124,244,214,.6); animation: ping 2s infinite; }
+  @keyframes ping { 70% { box-shadow: 0 0 0 12px rgba(124,244,214,0); } 100% { box-shadow: 0 0 0 0 rgba(124,244,214,0); } }
+  h1 { font: 700 clamp(2.7rem, 8vw, 6rem)/1.02 var(--display); letter-spacing: -0.035em; margin: 0; }
+  h1 .line { display: block; overflow: hidden; }
+  h1 .line span { display: inline-block; transform: translateY(105%); animation: rise 1s cubic-bezier(.2,.8,.2,1) forwards; }
+  h1 .line:nth-child(2) span { animation-delay: .12s; }
+  h1 .line:nth-child(3) span { animation-delay: .24s; }
+  @keyframes rise { to { transform: none; } }
+  .grad { background: linear-gradient(100deg, var(--mint), var(--violet) 45%, var(--pink) 80%, var(--mint)); background-size: 220% auto;
+    -webkit-background-clip: text; background-clip: text; color: transparent; animation: sheen 7s linear infinite; }
+  @keyframes sheen { to { background-position: 220% center; } }
+  .role { font: 500 clamp(1.15rem, 2.6vw, 1.6rem)/1.4 var(--display); color: var(--ink-2); margin: 26px 0 8px; min-height: 2.3em; }
+  .role b { color: var(--ink); font-weight: 600; }
+  .caret { display: inline-block; width: 3px; height: 1.05em; background: var(--mint); vertical-align: -3px; margin-left: 3px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .sub { max-width: 640px; color: var(--ink-2); margin: 0 0 34px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { position: relative; display: inline-flex; align-items: center; gap: 9px; padding: 13px 22px; border-radius: 14px; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--line); background: var(--card); transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .btn:hover { transform: translateY(-3px); border-color: rgba(124,244,214,.5); box-shadow: 0 10px 30px -10px rgba(124,244,214,.35); }
+  .btn--main { background: linear-gradient(120deg, var(--mint), #57d1ff); color: #061018; border: 0; }
+  .btn svg { width: 18px; height: 18px; }
+  .scroll { margin-top: 70px; width: 26px; height: 42px; border: 2px solid var(--ink-2); border-radius: 14px; position: relative; opacity: .6; }
+  .scroll::after { content: ""; position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--ink); animation: wheel 1.8s infinite; }
+  @keyframes wheel { to { transform: translateY(14px); opacity: 0; } }
+
+  /* ---------- Überschriften & Einblenden ---------- */
+  .kicker { font-family: var(--mono); color: var(--mint); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 10px; }
+  h2 { font: 700 clamp(2rem, 4.5vw, 3rem)/1.1 var(--display); letter-spacing: -0.03em; margin: 0 0 36px; }
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Über mich ---------- */
+  .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
+  .about p { color: var(--ink-2); margin: 0 0 16px; font-size: 1.05rem; }
+  .about strong { color: var(--ink); }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .stat { padding: 22px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); }
+  .stat b { display: block; font: 700 2.4rem/1 var(--display); background: linear-gradient(120deg, var(--mint), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat span { color: var(--ink-2); font-size: .92rem; }
+
+  /* ---------- Projekte ---------- */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card { position: relative; padding: 26px; border-radius: 22px; background: var(--card); border: 1px solid var(--line); overflow: hidden;
+    transform-style: preserve-3d; transition: transform .15s ease-out, border-color .3s; will-change: transform; }
+  .card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+    background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 50%), rgba(139,123,255,.18), transparent 40%); }
+  .card:hover { border-color: rgba(139,123,255,.45); }
+  .card:hover::before { opacity: 1; }
+  .card--wide { grid-column: span 2; }
+  .card .ico { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; font-size: 1.4rem; margin-bottom: 16px;
+    background: linear-gradient(140deg, rgba(124,244,214,.18), rgba(139,123,255,.18)); border: 1px solid var(--line); }
+  .card h3 { font: 700 1.35rem/1.25 var(--display); margin: 0 0 6px; }
+  .card h3 a { text-decoration: none; }
+  .card h3 a:hover { color: var(--mint); }
+  .card p { color: var(--ink-2); margin: 0 0 16px; }
+  .badge { display: inline-block; font: 600 .78rem/1 var(--body); color: #1d1300; background: linear-gradient(120deg, var(--amber), #ffe39e); padding: 6px 10px; border-radius: 999px; margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .tags li { font: 500 .78rem/1 var(--mono); color: var(--ink-2); padding: 6px 9px; border-radius: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+  .links { display: flex; gap: 14px; margin-top: 16px; font-size: .92rem; font-weight: 600; }
+  .links a { text-decoration: none; color: var(--mint); }
+  .links a:hover { text-decoration: underline; }
+
+  /* ---------- Werdegang ---------- */
+  .timeline { position: relative; margin: 0; padding: 0 0 0 30px; list-style: none; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--mint), var(--violet), transparent); }
+  .timeline li { position: relative; padding: 0 0 30px; }
+  .timeline li::before { content: ""; position: absolute; left: -29px; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--mint); }
+  .timeline time { font: 500 .85rem var(--mono); color: var(--mint); }
+  .timeline h3 { font: 600 1.15rem/1.3 var(--display); margin: 2px 0 2px; }
+  .timeline p { color: var(--ink-2); margin: 0; }
+
+  /* ---------- Skills-Laufband ---------- */
+  .marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); margin: 0 -24px 16px; }
+  .marquee ul { display: flex; gap: 12px; width: max-content; margin: 0; padding: 4px 0; list-style: none; animation: scroll 40s linear infinite; }
+  .marquee.rev ul { animation-direction: reverse; animation-duration: 46s; }
+  .marquee:hover ul { animation-play-state: paused; }
+  .marquee li { padding: 11px 18px; border-radius: 12px; background: var(--card); border: 1px solid var(--line); font-weight: 500; white-space: nowrap; }
+  .marquee li::before { content: "◆"; color: var(--violet); margin-right: 9px; font-size: .7em; vertical-align: 2px; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+  .langs { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .lang { flex: 1 1 200px; padding: 16px 18px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); }
+  .lang b { display: block; font-family: var(--display); }
+  .bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,.08); margin-top: 10px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--mint), var(--violet)); transition: width 1.6s cubic-bezier(.2,.8,.2,1); }
+  .in .bar i { width: var(--w); }
+
+  /* ---------- Kontakt ---------- */
+  .contact { text-align: center; padding: 70px 30px; border-radius: 28px; border: 1px solid var(--line); position: relative; overflow: hidden;
+    background: radial-gradient(circle at 50% 0%, rgba(139,123,255,.25), transparent 60%), var(--bg-2); }
+  .contact h2 { margin-bottom: 14px; }
+  .contact p { color: var(--ink-2); max-width: 560px; margin: 0 auto 28px; }
+  .contact .cta { justify-content: center; }
+  footer { text-align: center; color: var(--ink-2); font-size: .88rem; padding: 50px 0 40px; }
+
+  @media (max-width: 800px) {
+    header { display: none; }
+    .about, .projects { grid-template-columns: 1fr; }
+    .card--wide { grid-column: auto; }
+    section { padding-top: 80px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    h1 .line span { transform: none; }
+    .reveal { opacity: 1; transform: none; }
+    .in .bar i, .bar i { width: var(--w); }
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grid" aria-hidden="true"></div>
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<header>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#journey">Journey</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</header>
+
+<main>
+  <!-- ======================= HERO ======================= -->
+  <section class="hero" id="top">
+    <p class="hello"><span class="dot"></span>Open to working student &amp; internship roles · Darmstadt / Frankfurt</p>
+    <h1>
+      <span class="line"><span>Alfred</span></span>
+      <span class="line"><span class="grad">Mushagalusa</span></span>
+      <span class="line"><span>Munganga</span></span>
+    </h1>
+    <p class="role">I build <b id="typed">AI agents</b><span class="caret"></span></p>
+    <p class="sub">Computer Science student at <strong>TU Darmstadt</strong>, known on GitHub as <strong>alfredlog</strong>. I turn ideas into production-ready AI applications – from ML models, RAG pipelines and agents to the backend, payments and servers that keep them running.</p>
+    <div class="cta">
+      <a class="btn btn--main" href="#projects">See my projects
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://github.com/alfredlog" rel="me">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+        GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/alfred119" rel="me">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        LinkedIn</a>
+    </div>
+    <div class="scroll" aria-hidden="true"></div>
+  </section>
+
+  <!-- ======================= ABOUT ======================= -->
+  <section id="about">
+    <p class="kicker reveal">01 · About me</p>
+    <h2 class="reveal">From Bukavu to Darmstadt,<br>building AI that ships.</h2>
+    <div class="about">
+      <div class="reveal">
+        <p>I'm <strong>Alfred Mushagalusa Munganga</strong>. I study <strong>B.Sc. Computer Science at TU Darmstadt</strong> with a focus on generative AI, AI agents and process automation.</p>
+        <p>What drives me is taking an idea all the way to something people can actually use: the model, the agent logic, the API, the database, the payments and the Linux server it runs on. Several of my projects are live and used today.</p>
+        <p>Before Darmstadt I did an <strong>IT &amp; Data Analysis internship at FINCA</strong>, then learned German up to C1 in Mannheim and went through the Studienkolleg in Mainz.</p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b data-count="4">0</b><span>live products on my own servers</span></div>
+        <div class="stat"><b data-count="2">0</b><span>hackathons in 2026 – one podium</span></div>
+        <div class="stat"><b data-count="270" data-plus>0</b><span>automated tests in AgentTresor</span></div>
+        <div class="stat"><b data-count="3">0</b><span>languages: French, German, English</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PROJECTS ======================= -->
+  <section id="projects">
+    <p class="kicker reveal">02 · Selected work</p>
+    <h2 class="reveal">Projects</h2>
+    <div class="projects">
+      <article class="card card--wide reveal">
+        <span class="badge">🥈 2nd place · Adevar Labs prize · TUM Blockchain Hackathon 2026</span>
+        <div class="ico">🔐</div>
+        <h3><a href="https://github.com/alfredlog/agenttresor">AgentTresor</a></h3>
+        <p>Non-custodial spend control for AI agents. A company locks a budget in an on-chain vault; every payment needs both the agent's and the policy's signature. Per-agent rules, approvals for large payments, a hash-chained audit log – and agents like Claude, ChatGPT or Cursor connect via MCP and pay merchants over HTTP 402.</p>
+        <ul class="tags"><li>TypeScript</li><li>Node.js</li><li>MCP</li><li>Bitcoin Script</li><li>BSV mainnet</li><li>270+ tests</li></ul>
+        <div class="links"><a href="https://github.com/alfredlog/agenttresor">Code →</a><a href="https://agentpay.pdf-libre.de">Live demo →</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico">🧾</div>
+        <h3><a href="https://github.com/alfredlog/erechnung">E-Rechnung</a></h3>
+        <p>An agent that receives, checks and approves German e-invoices (XRechnung, ZUGFeRD). It only decides alone when every value is grounded in the document and the official validation passes.</p>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>OCR</li><li>LLM</li></ul>
+        <div class="links"><a href="https://github.com/alfredlog/erechnung">Code →</a><a href="https://erechnungagent.de">erechnungagent.de →</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico">💬</div>
+        <h3><a href="https://github.com/alfredlog/empfang-ki">Empfang KI</a></h3>
+        <p>AI receptionist for small businesses: an embeddable chat widget that answers from the business's knowledge base and takes requests and appointments.</p>
+        <ul class="tags"><li>Node.js</li><li>Claude API</li><li>PostgreSQL</li><li>Stripe</li></ul>
+        <div class="links"><a href="https://github.com/alfredlog/empfang-ki">Code →</a><a href="https://empfang-ki.de">empfang-ki.de →</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico">📄</div>
+        <h3><a href="https://github.com/alfredlog/pdf-tools">PDF Libre</a></h3>
+        <p>Free PDF tools for everyone – merge, compress, convert, edit, sign, PDF to PowerPoint with live design preview – running on my own Linux server.</p>
+        <ul class="tags"><li>Node.js</li><li>Python</li><li>PyMuPDF</li><li>Linux VPS</li></ul>
+        <div class="links"><a href="https://github.com/alfredlog/pdf-tools">Code →</a><a href="https://pdf-libre.de">pdf-libre.de →</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="ico">📈</div>
+        <h3><a href="https://github.com/wissemsaadaoui/Futury-Build-Days-Hackathon">Issuer Intelligence Hub</a></h3>
+        <p>Futury Build Days 2026, Deutsche Börse challenge. I built the analytics and the AI assistant, which may only rephrase computed figures – a guard rejects any invented number.</p>
+        <ul class="tags"><li>Python</li><li>pandas</li><li>FastAPI</li><li>LLM tool use</li></ul>
+      </article>
+      <article class="card reveal">
+        <div class="ico">🤖</div>
+        <h3><a href="https://github.com/alfredlog/chatboot">AI Customer Support Platform</a></h3>
+        <p>Multi-tenant SaaS for support chatbots: companies upload documents, the bot answers via RAG and semantic search.</p>
+        <ul class="tags"><li>OpenAI</li><li>pgvector</li><li>AWS S3</li><li>Stripe</li></ul>
+      </article>
+      <article class="card reveal">
+        <div class="ico">🎯</div>
+        <h3><a href="https://github.com/alfredlog/AI-Use-Case-Prioritization-Copilot">AI Use-Case Prioritization Copilot</a></h3>
+        <p>An ML model that scores and prioritizes AI use cases, plus a RAG copilot that explains each recommendation.</p>
+        <ul class="tags"><li>scikit-learn</li><li>RAG</li><li>LLM APIs</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ======================= JOURNEY ======================= -->
+  <section id="journey">
+    <p class="kicker reveal">03 · Journey</p>
+    <h2 class="reveal">Where I've been</h2>
+    <ol class="timeline">
+      <li class="reveal"><time>2026</time><h3>Hackathons &amp; live products</h3><p>2nd place at the TUM Blockchain Hackathon with AgentTresor, Deutsche Börse challenge at Futury Build Days, launch of E-Rechnung, Empfang KI and PDF Libre.</p></li>
+      <li class="reveal"><time>Since 10/2025</time><h3>B.Sc. Computer Science · TU Darmstadt</h3><p>Focus on generative AI, AI agents and process automation; Statistical Machine Learning.</p></li>
+      <li class="reveal"><time>02/2025 – 05/2025</time><h3>Studienkolleg (T-Kurs) · JGU Mainz</h3><p>Preparatory course for technical degrees.</p></li>
+      <li class="reveal"><time>05/2024 – 12/2024</time><h3>German course · Universität Mannheim</h3><p>DSH-2 / C1.</p></li>
+      <li class="reveal"><time>10/2023 – 04/2024</time><h3>IT &amp; Data Analysis intern · FINCA</h3><p>Data analysis and IT support in Bukavu.</p></li>
+    </ol>
+  </section>
+
+  <!-- ======================= SKILLS ======================= -->
+  <section id="skills">
+    <p class="kicker reveal">04 · Toolbox</p>
+    <h2 class="reveal">Skills</h2>
+    <div class="marquee reveal"><ul>
+      <li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>pandas</li><li>OpenAI API</li><li>Anthropic API</li><li>RAG</li><li>AI Agents</li><li>MCP</li><li>YOLOv8</li><li>FAISS</li><li>Tesseract OCR</li>
+      <li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>pandas</li><li>OpenAI API</li><li>Anthropic API</li><li>RAG</li><li>AI Agents</li><li>MCP</li><li>YOLOv8</li><li>FAISS</li><li>Tesseract OCR</li>
+    </ul></div>
+    <div class="marquee rev reveal"><ul>
+      <li>FastAPI</li><li>Node.js</li><li>Express</li><li>TypeScript</li><li>PostgreSQL</li><li>pgvector</li><li>REST APIs</li><li>Docker</li><li>Linux servers</li><li>Caddy</li><li>pm2</li><li>AWS S3</li><li>Stripe</li><li>Git</li>
+      <li>FastAPI</li><li>Node.js</li><li>Express</li><li>TypeScript</li><li>PostgreSQL</li><li>pgvector</li><li>REST APIs</li><li>Docker</li><li>Linux servers</li><li>Caddy</li><li>pm2</li><li>AWS S3</li><li>Stripe</li><li>Git</li>
+    </ul></div>
+    <div class="langs reveal">
+      <div class="lang"><b>French</b><span style="color:var(--ink-2)">native</span><div class="bar"><i style="--w:100%"></i></div></div>
+      <div class="lang"><b>German</b><span style="color:var(--ink-2)">C1 · DSH-2</span><div class="bar"><i style="--w:85%"></i></div></div>
+      <div class="lang"><b>English</b><span style="color:var(--ink-2)">professional</span><div class="bar"><i style="--w:75%"></i></div></div>
+    </div>
+  </section>
+
+  <!-- ======================= CONTACT ======================= -->
+  <section id="contact">
+    <div class="contact reveal">
+      <p class="kicker">05 · Contact</p>
+      <h2>Let's build something.</h2>
+      <p>I'm looking for working student and internship roles in ML / AI around Frankfurt and Darmstadt (about 15 hours a week). The fastest way to reach me is LinkedIn.</p>
+      <div class="cta">
+        <a class="btn btn--main" href="https://www.linkedin.com/in/alfred119" rel="me">Message me on LinkedIn</a>
+        <a class="btn" href="https://github.com/alfredlog" rel="me">github.com/alfredlog</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Alfred Mushagalusa Munganga · alfredlog</footer>
+
+<script>
+(() => {
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Tippende Rollen
+  const roles = ["AI agents", "RAG pipelines", "ML models", "full-stack web apps", "automation that ships"];
+  const el = document.getElementById("typed");
+  if (!reduced) {
+    let r = 0, i = roles[0].length, del = true;
+    const tick = () => {
+      const word = roles[r];
+      i += del ? -1 : 1;
+      el.textContent = word.slice(0, i);
+      let wait = del ? 45 : 85;
+      if (!del && i === word.length) { del = true; wait = 1800; }
+      else if (del && i === 0) { del = false; r = (r + 1) % roles.length; wait = 300; }
+      setTimeout(tick, wait);
+    };
+    setTimeout(tick, 2200);
+  }
+
+  // Einblenden beim Scrollen + Zähler
+  const count = (b) => {
+    const end = +b.dataset.count, plus = b.hasAttribute("data-plus"), t0 = performance.now(), dur = 1400;
+    const step = (t) => {
+      const p = Math.min(1, (t - t0) / dur), v = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      b.textContent = v + (plus && p === 1 ? "+" : "");
+      if (p < 1) requestAnimationFrame(step);
+    };
+    reduced ? (b.textContent = end + (plus ? "+" : "")) : requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add("in");
+    e.target.querySelectorAll("[data-count]").forEach(count);
+    io.unobserve(e.target);
+  }), { threshold: 0.15 });
+  document.querySelectorAll(".reveal").forEach((n, k) => {
+    n.style.transitionDelay = (n.closest(".projects") ? (k % 2) * 0.08 : 0) + "s";
+    io.observe(n);
+  });
+
+  // Fortschrittsbalken + aktiver Menüpunkt
+  const bar = document.getElementById("progress");
+  const links = [...document.querySelectorAll("header a")];
+  addEventListener("scroll", () => {
+    const h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+    let cur = "";
+    document.querySelectorAll("section[id]").forEach((s) => { if (s.getBoundingClientRect().top < innerHeight * 0.4) cur = s.id; });
+    links.forEach((a) => a.classList.toggle("on", a.getAttribute("href") === "#" + cur));
+  }, { passive: true });
+
+  if (reduced) return;
+
+  // Lichtschein folgt der Maus, Karten kippen leicht
+  const glow = document.getElementById("glow");
+  addEventListener("pointermove", (e) => { glow.style.left = e.clientX + "px"; glow.style.top = e.clientY + "px"; });
+  document.querySelectorAll(".card").forEach((c) => {
+    c.addEventListener("pointermove", (e) => {
+      const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      c.style.setProperty("--mx", x * 100 + "%");
+      c.style.setProperty("--my", y * 100 + "%");
+      c.style.transform = `perspective(900px) rotateX(${(0.5 - y) * 6}deg) rotateY(${(x - 0.5) * 8}deg) translateY(-4px)`;
+    });
+    c.addEventListener("pointerleave", () => (c.style.transform = ""));
+  });
+
+  // Neuronales Netz im Hintergrund
+  const cv = document.getElementById("net"), ctx = cv.getContext("2d");
+  let W, H, pts = [], mouse = { x: -999, y: -999 };
+  const resize = () => {
+    W = cv.width = innerWidth * devicePixelRatio; H = cv.height = innerHeight * devicePixelRatio;
+    cv.style.width = innerWidth + "px"; cv.style.height = innerHeight + "px";
+    const n = Math.min(90, Math.round((innerWidth * innerHeight) / 16000));
+    pts = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35 }));
+  };
+  addEventListener("resize", resize); resize();
+  addEventListener("pointermove", (e) => { mouse.x = e.clientX * devicePixelRatio; mouse.y = e.clientY * devicePixelRatio; });
+  const D = 140 * devicePixelRatio;
+  (function frame() {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of pts) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      const dm = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+      if (dm < D) { p.x += (p.x - mouse.x) / dm * .8; p.y += (p.y - mouse.y) / dm * .8; }
+    }
+    for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+      const a = pts[i], b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (d < D) { ctx.strokeStyle = `rgba(139,123,255,${(1 - d / D) * .35})`; ctx.lineWidth = devicePixelRatio; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+    }
+    ctx.fillStyle = "rgba(124,244,214,.75)";
+    for (const p of pts) { ctx.beginPath(); ctx.arc(p.x, p.y, 1.6 * devicePixelRatio, 0, 7); ctx.fill(); }
+    requestAnimationFrame(frame);
+  })();
+})();
+</script>
+</body>
+</html>
