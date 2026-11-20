@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alfred Mushagalusa Munganga – AI Engineer · Computer Science @ TU Darmstadt</title>
 <meta name="description" content="Alfred Mushagalusa Munganga (alfredlog): Computer Science student at TU Darmstadt building AI agents, RAG systems and production web apps – AgentTresor, E-Rechnung, Empfang KI, PDF Libre.">
@@ -99,8 +100,8 @@
   /* ---------- Überschriften & Einblenden ---------- */
   .kicker { font-family: var(--mono); color: var(--mint); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 10px; }
   h2 { font: 700 clamp(2rem, 4.5vw, 3rem)/1.1 var(--display); letter-spacing: -0.03em; margin: 0 0 36px; }
-  .reveal { opacity: 0; transform: translateY(36px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
-  .reveal.in { opacity: 1; transform: none; }
+  .js .reveal { opacity: 0; transform: translateY(36px); transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1); }
+  .js .reveal.in { opacity: 1; transform: none; }
 
   /* ---------- Über mich ---------- */
   .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: start; }
@@ -132,6 +133,9 @@
   .links { display: flex; gap: 14px; margin-top: 16px; font-size: .92rem; font-weight: 600; }
   .links a { text-decoration: none; color: var(--mint); }
   .links a:hover { text-decoration: underline; }
+  .toollinks { margin-top: 12px; font-size: .86rem; line-height: 1.7; color: var(--ink-2); }
+  .toollinks a { color: var(--ink); text-decoration: underline; text-decoration-color: rgba(124,244,214,.45); text-underline-offset: 3px; }
+  .toollinks a:hover { color: var(--mint); }
 
   /* ---------- Werdegang ---------- */
   .timeline { position: relative; margin: 0; padding: 0 0 0 30px; list-style: none; }
@@ -154,8 +158,9 @@
   .lang { flex: 1 1 200px; padding: 16px 18px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); }
   .lang b { display: block; font-family: var(--display); }
   .bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,.08); margin-top: 10px; overflow: hidden; }
-  .bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--mint), var(--violet)); transition: width 1.6s cubic-bezier(.2,.8,.2,1); }
-  .in .bar i { width: var(--w); }
+  .bar i { display: block; height: 100%; width: var(--w); border-radius: inherit; background: linear-gradient(90deg, var(--mint), var(--violet)); transition: width 1.6s cubic-bezier(.2,.8,.2,1); }
+  .js .bar i { width: 0; }
+  .js .in .bar i { width: var(--w); }
 
   /* ---------- Kontakt ---------- */
   .contact { text-align: center; padding: 70px 30px; border-radius: 28px; border: 1px solid var(--line); position: relative; overflow: hidden;
@@ -174,8 +179,8 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     h1 .line span { transform: none; }
-    .reveal { opacity: 1; transform: none; }
-    .in .bar i, .bar i { width: var(--w); }
+    .js .reveal { opacity: 1; transform: none; }
+    .js .in .bar i, .js .bar i { width: var(--w); }
   }
 </style>
 </head>
@@ -229,10 +234,10 @@
         <p>Before Darmstadt I did an <strong>IT &amp; Data Analysis internship at FINCA</strong>, then learned German up to C1 in Mannheim and went through the Studienkolleg in Mainz.</p>
       </div>
       <div class="stats reveal">
-        <div class="stat"><b data-count="4">0</b><span>live products on my own servers</span></div>
-        <div class="stat"><b data-count="2">0</b><span>hackathons in 2026 – one podium</span></div>
-        <div class="stat"><b data-count="270" data-plus>0</b><span>automated tests in AgentTresor</span></div>
-        <div class="stat"><b data-count="3">0</b><span>languages: French, German, English</span></div>
+        <div class="stat"><b data-count="4">4</b><span>live products on my own servers</span></div>
+        <div class="stat"><b data-count="2">2</b><span>hackathons in 2026 – one podium</span></div>
+        <div class="stat"><b data-count="270" data-plus>270+</b><span>automated tests in AgentTresor</span></div>
+        <div class="stat"><b data-count="3">3</b><span>languages: French, German, English</span></div>
       </div>
     </div>
   </section>
@@ -267,8 +272,18 @@
       <article class="card reveal">
         <div class="ico">📄</div>
         <h3><a href="https://github.com/alfredlog/pdf-tools">PDF Libre</a></h3>
-        <p>Free PDF tools for everyone – merge, compress, convert, edit, sign, PDF to PowerPoint with live design preview – running on my own Linux server.</p>
-        <ul class="tags"><li>Node.js</li><li>Python</li><li>PyMuPDF</li><li>Linux VPS</li></ul>
+        <p>Free PDF tools for everyone – merge, compress, convert, edit, sign, PDF to PowerPoint with live design preview – running on my own Linux server. Available in German, English and French. Scanned PDFs become editable Word files through OCR, and an ATS-friendly CV builder helps students apply for jobs.</p>
+        <ul class="tags"><li>Node.js</li><li>Python</li><li>PyMuPDF</li><li>Tesseract OCR</li><li>Linux VPS</li></ul>
+        <p class="toollinks">Popular tools:
+          <a href="https://pdf-libre.de/pdf-to-docx.html" lang="de">PDF in Word umwandeln (mit OCR)</a> ·
+          <a href="https://pdf-libre.de/lebenslauf-erstellen.html" lang="de">Lebenslauf erstellen</a> ·
+          <a href="https://pdf-libre.de/bewerbungsmappe.html" lang="de">Bewerbungsmappe als PDF</a> ·
+          <a href="https://pdf-libre.de/compress.html" lang="de">PDF komprimieren</a> ·
+          <a href="https://pdf-libre.de/merge.html" lang="de">PDF zusammenfügen</a> ·
+          <a href="https://pdf-libre.de/sign.html" lang="de">PDF unterschreiben</a> ·
+          <a href="https://pdf-libre.de/en/">PDF tools in English</a> ·
+          <a href="https://pdf-libre.de/fr/" lang="fr">Outils PDF en français</a>
+        </p>
         <div class="links"><a href="https://github.com/alfredlog/pdf-tools">Code →</a><a href="https://pdf-libre.de">pdf-libre.de →</a></div>
       </article>
       <article class="card reveal">
